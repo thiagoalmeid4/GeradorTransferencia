@@ -18,7 +18,7 @@ public class GeradorTransferencia {
 	public List<TransferenciaPixDto> pix = new ArrayList<>();
 	public List<TransferenciaTedDto> ted = new ArrayList<>();
 
-	private void gerarPix() {
+	public void gerarPix() {
 		ImportDados importar = new ImportDados();
 		List<ClienteDados> clientes = importar.listarDados();
 		for (int i = 0; i != 10; i++) {
@@ -44,7 +44,7 @@ public class GeradorTransferencia {
 		return pix;
 	}
 
-	private void gerarTed() {
+	public void gerarTed() {
 		ImportDados importar = new ImportDados();
 		List<ClienteDados> clientes = importar.listarDados();
 		for (int i = 0; i != 10; i++) {
@@ -70,11 +70,6 @@ public class GeradorTransferencia {
 	public List<TransferenciaTedDto> listarTransferenciasTed() {
 
 		return ted;
-	}
-
-	public void executar() {
-		gerarPix();
-		gerarTed();
 	}
 
 }
