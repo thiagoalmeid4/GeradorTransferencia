@@ -30,7 +30,7 @@ public class GeradorTransferencia {
 				int idCliente = cliente.id();
 				String cpfDestino = clientes.get(conta2).cpf();
 
-				TransferenciaPixDto transferenciaPix = new TransferenciaPixDto(idCliente, cpfDestino, numeroAleatorio.doubleValue());
+				TransferenciaPixDto transferenciaPix = new TransferenciaPixDto( cpfDestino, numeroAleatorio.doubleValue(),idCliente);
 				pix.add(transferenciaPix);
 
 			}else {
