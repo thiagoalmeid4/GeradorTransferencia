@@ -10,11 +10,11 @@ import java.util.List;
 
 import br.com.gerador.dto.TransferenciaTedDto;
 
-public class TedWriterReader {
+public class GeradorTed {
 
 	private GeradorTransferencia gerador;
 	
-	public TedWriterReader(GeradorTransferencia gerador) {
+	public GeradorTed(GeradorTransferencia gerador) {
 		this.gerador = gerador;
 	}
 	

@@ -20,7 +20,7 @@ public class RequisicaoTed {
 		Request rt = new Request.Builder().url("http://localhost:8080/conta/ted").post(RequestBody.create(json, HJSON))
 				.build();
 		Response response = client.newCall(rt).execute();
-
+		System.out.println(response.code());
 	}
 
 }

@@ -22,7 +22,7 @@ public class RequisicaoPix {
 	 			.post(RequestBody.create(json,HJSON))
 	 			.build();
 	 	Response response = client.newCall(rt).execute();
-	 	
+	 	System.out.println(response.code());
 	}
 
 }
