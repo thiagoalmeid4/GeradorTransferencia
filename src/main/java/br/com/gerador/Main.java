@@ -3,6 +3,8 @@ package br.com.gerador;
 import java.io.IOException;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import br.com.gerador.dto.TransferenciaPixDto;
 import br.com.gerador.dto.TransferenciaTedDto;
 import br.com.gerador.requisicao.RequisicaoPix;
@@ -14,7 +16,7 @@ import br.com.gerador.transferencias.GeradorTransferencia;
 public class Main {
     public static void main(String[] args) throws IOException {
       
-    	Scanner scanner = new Scanner(System.in);
+    	
     	var gera = new GeradorTransferencia();
     	var geraPix = new GeradorPix(gera);
     	var geraTed = new GeradorTed(gera);
@@ -22,16 +24,19 @@ public class Main {
     	var reqTed = new RequisicaoTed();
     	
     	boolean segue = true;
-    	int entrada;
+    	int entrada ;
+    	
     	
     	while(segue) {
-    		System.out.println("[1] gerar transferência pix\n"
+    		String painel = "[1] gerar transferência pix\n"
     				+ "[2] gerar transferência ted\n"
     				+ "[3] visualizar transferências pix\n"
     				+ "[4] visualizar transferências ted\n"
     				+ "[5] enviar transferências pix\n"
-    				+ "[6] enviar transferências ted\n");
-    		entrada = scanner.nextInt();
+    				+ "[6] enviar transferências ted\n";
+    		
+    		entrada = Integer.parseInt(JOptionPane.showInputDialog(painel + "\ndigite sua opção:"));
+    		
     		
     		switch(entrada) { 
     		case 1:
