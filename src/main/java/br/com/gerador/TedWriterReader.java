@@ -13,19 +13,25 @@ import br.com.gerador.transferencias.GeradorTransferencia;
 
 public class TedWriterReader {
 
-	private GeradorTransferencia gerador = new GeradorTransferencia();
-	private List<TransferenciaTedDto> transferenciasTed = gerador.ted;
+	private GeradorTransferencia gerador;
+	
+	public TedWriterReader(GeradorTransferencia gerador) {
+		this.gerador = gerador;
+	}
+	
 	
 	public void writeTed() {
+		gerador.gerarTed();
+		List<TransferenciaTedDto> transferenciasTed = gerador.listarTransferenciasTed();
 		FileWriter fileWriter;
 		BufferedWriter bufferedWriter;
 		try {
-			fileWriter = new FileWriter("TransferenciasTed.txt", true);
+			fileWriter = new FileWriter("TransferenciasTed.txt");
 			bufferedWriter = new BufferedWriter(fileWriter);
-			for (TransferenciaTedDto transferencia : transferenciasTed) {
-				bufferedWriter.newLine();
-				bufferedWriter.write(transferencia.agencia() + transferencia.numeroConta() + transferencia.id() + "*"
+			for (TransferenciaTedDto transferencia : transferenciasTed) {	
+				bufferedWriter.write(transferencia.agencia() + "" + transferencia.numeroConta() + transferencia.id() + "*"
 						+ transferencia.valor());
+				bufferedWriter.newLine();
 				bufferedWriter.flush();
 			}
 			bufferedWriter.close();
@@ -37,6 +43,7 @@ public class TedWriterReader {
 	public List<TransferenciaTedDto> readTed() {
 		FileReader fileReader;
 		BufferedReader bufferedReader;
+		List<TransferenciaTedDto> transferenciasTed = gerador.listarTransferenciasTed();
 		try {
 			fileReader = new FileReader("TransferenciasTed.txt");
 			bufferedReader = new BufferedReader(fileReader);
