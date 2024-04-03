@@ -23,7 +23,7 @@ public class GeradorPix {
 		gerador.gerarPix();
 		List<TransferenciaPixDto> listaPix = gerador.listarTransferenciasPix();
 
-		FileWriter writer = new FileWriter("listaTransferencias.txt");
+		FileWriter writer = new FileWriter("TransferenciasPix.txt");
 		BufferedWriter bWriter = new BufferedWriter(writer);
 
 		for (TransferenciaPixDto tPix : listaPix) {
@@ -41,7 +41,7 @@ public class GeradorPix {
 		FileReader fileR;
 		BufferedReader bufferedR;
 		try {
-		fileR = new FileReader("listaTransferencias.txt");
+		fileR = new FileReader("TransferenciasPix.txt");
 		bufferedR = new BufferedReader(fileR);
 		bufferedR.readLine();
 		while(bufferedR.ready()){

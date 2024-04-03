@@ -1,4 +1,4 @@
-package br.com.gerador;
+package br.com.gerador.transferencias;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,7 +9,6 @@ import java.math.RoundingMode;
 import java.util.List;
 
 import br.com.gerador.dto.TransferenciaTedDto;
-import br.com.gerador.transferencias.GeradorTransferencia;
 
 public class TedWriterReader {
 
