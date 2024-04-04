@@ -44,7 +44,7 @@ public class Main {
 					geraTed.writeTed();
 					break;
 				case 3:
-					int i = 0;
+					int i = 1;
 					StringBuilder sb = new StringBuilder("");
 					for (TransferenciaPixDto t : geraPix.lerPix()) {
 						sb.append(i).append("-");
@@ -54,7 +54,7 @@ public class Main {
 					JOptionPane.showMessageDialog(null, sb.toString());
 					break;
 				case 4:
-					i = 0;
+					i = 1;
 					sb = new StringBuilder("");
 					for (TransferenciaTedDto t : geraTed.readTed()) {
 						sb.append(i).append("-");
@@ -99,13 +99,13 @@ public class Main {
 			case 3:
 				entrada = Integer.parseInt(JOptionPane.showInputDialog( "\ndigite o indice da transferência:"));
 				System.out.println("Realizando a transferência...");
-				String s = rp.executar(gp.lerPix().get(entrada));
+				String s = rp.executar(gp.lerPix().get(entrada-1));
 				JOptionPane.showMessageDialog(null, s);
 				break;
 			case 4:
 				entrada = Integer.parseInt(JOptionPane.showInputDialog("\ndigite o indice da transferência:"));
 				System.out.println("Realizando a transferência...");
-				String s2 = rt.executar(gt.readTed().get(entrada));
+				String s2 = rt.executar(gt.readTed().get(entrada-1));
 				JOptionPane.showMessageDialog(null, s2);
 				break;
 		}

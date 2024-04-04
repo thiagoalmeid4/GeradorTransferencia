@@ -43,7 +43,6 @@ public class GeradorPix {
 		try {
 		fileR = new FileReader("TransferenciasPix.txt");
 		bufferedR = new BufferedReader(fileR);
-		bufferedR.readLine();
 		while(bufferedR.ready()){
 			String linha = bufferedR.readLine();
 			int n = linha.indexOf('*');

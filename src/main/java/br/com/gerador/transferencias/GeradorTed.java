@@ -47,7 +47,6 @@ public class GeradorTed {
 		try {
 			fileReader = new FileReader("TransferenciasTed.txt");
 			bufferedReader = new BufferedReader(fileReader);
-			bufferedReader.readLine();
 			while (bufferedReader.ready()) {
 				String linha = bufferedReader.readLine();
 				String[] dados = linha.split("\\*");
