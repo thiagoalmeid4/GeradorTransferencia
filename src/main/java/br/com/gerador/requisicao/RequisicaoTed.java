@@ -12,7 +12,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class RequisicaoTed {
-	public void executar(TransferenciaTedDto TedDto) throws IOException {
+	public String executar(TransferenciaTedDto TedDto) throws IOException {
 		OkHttpClient client = new OkHttpClient();
 		Gson gson = new Gson();
 		String json = gson.toJson(TedDto);
@@ -20,7 +20,7 @@ public class RequisicaoTed {
 		Request rt = new Request.Builder().url("http://localhost:8080/conta/ted").post(RequestBody.create(json, HJSON))
 				.build();
 		Response response = client.newCall(rt).execute();
-		System.out.println(response.code());
+		return response.body().string();
 	}
 
 }

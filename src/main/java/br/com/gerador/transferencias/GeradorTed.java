@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.gerador.dto.TransferenciaTedDto;
@@ -42,14 +43,14 @@ public class GeradorTed {
 	public List<TransferenciaTedDto> readTed() {
 		FileReader fileReader;
 		BufferedReader bufferedReader;
-		List<TransferenciaTedDto> transferenciasTed = gerador.listarTransferenciasTed();
+		List<TransferenciaTedDto> transferenciasTed = new ArrayList<TransferenciaTedDto>();
 		try {
 			fileReader = new FileReader("TransferenciasTed.txt");
 			bufferedReader = new BufferedReader(fileReader);
 			bufferedReader.readLine();
 			while (bufferedReader.ready()) {
 				String linha = bufferedReader.readLine();
-				String[] dados = linha.split("*");
+				String[] dados = linha.split("\\*");
 					String dadosTransferencia = dados[0];
 					BigDecimal valor = new BigDecimal(dados[1]).setScale(2, RoundingMode.HALF_UP);
 
